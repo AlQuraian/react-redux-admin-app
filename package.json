@@ -2,6 +2,15 @@
   "name": "react-redux-admin-app",
   "version": "1.0.0",
   "description": "Starter kit for React and Redux Pluralsight course by Cory House",
+  "scripts": {
+    "prestart": "babel-node devScripts/startMessage.js",
+    "start": "npm-run-all --parallel open:src lint:watch test:watch",
+    "open:src": "babel-node devScripts/srcServer.js",
+    "lint": "esw webpack.config.* src devScripts --color",
+    "lint:watch": "npm run lint -- --watch",
+    "test": "mocha --reporter progress devScripts/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
+  },
   "author": "Mohammad Al Quraian",
   "license": "MIT",
   "dependencies": {
